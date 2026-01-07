@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Agendamentos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- MENU LATERAL -->
+  <aside class="sidebar">
+    <h2>📦 Sistema WSM</h2>
+
+    <button class="menu-btn active" data-aba="dashboard">📊 Dashboard</button>
+    <button class="menu-btn" data-aba="agendamentos">📅 Agendamentos</button>
+    <button class="menu-btn" data-aba="contatos">📞 Contatos</button>
+
+    <button id="btnLogout" class="logout">🚪 Sair</button>
+  </aside>
+
+  <!-- CONTEÚDO -->
+  <main class="conteudo">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="aba ativa">
+      <h1>Dashboard</h1>
+
+      <!-- CARDS -->
+      <div class="cards">
+        <div class="card"><h3>Total</h3><span id="totalAgendamentos">0</span></div>
+        <div class="card"><h3>No Galpão</h3><span id="totalGalpao">0</span></div>
+        <div class="card"><h3>Em Rota</h3><span id="totalRota">0</span></div>
+        <div class="card"><h3>Entregues</h3><span id="totalEntregue">0</span></div>
+      </div>
+
+      <!-- GRÁFICOS -->
+      <div class="graficos-dashboard">
+        <div class="grafico-box"><canvas id="graficoSituacao"></canvas></div>
+        <div class="grafico-box"><canvas id="graficoStatus"></canvas></div>
+      </div>
+    </section>
+
+    <!-- AGENDAMENTOS -->
+    <section id="agendamentos" class="aba">
+      <h1>Agendamentos</h1>
+
+      <div class="formulario">
+        <input type="number" id="nota" placeholder="Nota Fiscal" required>
+        <input id="remetente" placeholder="Remetente">
+        <input id="destinatario" placeholder="Destinatário">
+        <input type="date" id="dataEntrega">
+        <input type="number" id="volumes" placeholder="Volumes" min="1">
+
+        <select id="situacao">
+          <option>No Galpão</option>
+          <option>Em Rota</option>
+        </select>
+
+        <select id="motorista">
+          <option value="">Selecione</option>
+          <option>Antonio Helder</option>
+          <option>Antonio Vieira</option>
+          <option>Fiderlan</option>
+          <option>Gedimar</option>
+          <option>Genes</option>
+          <option>Hilberto</option>
+          <option>Kenderson</option>
+          <option>Sidinei</option>
+          <option>Welder</option>
+        </select>
+
+        <select id="status">
+          <option>Agendado</option>
+          <option>Entregue</option>
+        </select>
+
+        <button id="btnAdicionar">Adicionar</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nota</th>
+            <th>Remetente</th>
+            <th>Destinatário</th>
+            <th>Data</th>
+            <th>Dia</th>
+            <th>Volumes</th>
+            <th>Situação</th>
+            <th>Motorista</th>
+            <th>Status</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaAgendamentos"></tbody>
+      </table>
+    </section>
+
+    <!-- CONTATOS -->
+    <section id="contatos" class="aba">
+      <h1>Contatos</h1>
+
+      <input type="text" id="pesquisaContato" placeholder="Pesquisar por local, telefone ou responsável" class="campo-pesquisa">
+
+      <div class="card-contato">
+        <h3>📞 Contato do Local</h3>
+
+        <input id="contatoLocal" placeholder="Nome do Local">
+        <input id="contatoResponsavel" placeholder="Pessoa de Contato">
+        <input id="contatoTelefone" placeholder="Telefone" inputmode="numeric" maxlength="15">
+        <input id="contatoEmail" placeholder="E-mail">
+        <textarea id="contatoObs" placeholder="Observações"></textarea>
+
+        <div class="botoes-contato">
+          <button id="btnSalvarContato">Salvar Contato</button>
+          <button id="btnCancelarEdicao" class="btn-cancelar" style="display:none">Cancelar edição</button>
+        </div>
+      </div>
+
+      <table class="tabela-contatos">
+        <thead>
+          <tr>
+            <th>Local</th>
+            <th>Responsável</th>
+            <th>Telefone</th>
+            <th>E-mail</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaContatos"></tbody>
+      </table>
+    </section>
+
+  </main>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<!-- LOADING -->
+<div id="loading" class="loading-overlay">
+  <div class="spinner"></div>
+</div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

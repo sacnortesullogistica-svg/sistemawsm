@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Sistema WSM</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+  <div class="login-container">
+    
+    <div class="login-header">
+      <h1>📦 Sistema WSM</h1>
+      <p>Faça login para continuar</p>
+    </div>
+
+    <div class="input-group">
+      <span>📧</span>
+      <input type="email" id="email" placeholder="E-mail">
+    </div>
+
+    <div class="input-group">
+      <span>🔒</span>
+      <input type="password" id="senha" placeholder="Senha">
+      <span class="toggle-senha" id="toggleSenha">👁</span>
+    </div>
+
+    <button id="btnLogin">
+      <span id="btnText">Entrar</span>
+    </button>
+
+    <div id="msgLogin" class="login-msg"></div>
+
+    <div class="login-footer">
+      © 2026 • Sistema WSM
+    </div>
+  </div>
+
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

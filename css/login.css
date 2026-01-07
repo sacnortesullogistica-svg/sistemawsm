@@ -1,0 +1,144 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================= BACKGROUND ================= */
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ================= CONTAINER ================= */
+.login-container {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.6s ease;
+}
+
+/* ================= HEADER ================= */
+.login-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-header h1 {
+  color: #1d4ed8;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* ================= INPUT GROUP ================= */
+.input-group {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.input-group span {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #64748b;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px 12px 44px;
+  border-radius: 12px;
+  border: 1px solid #c7d2fe;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #2563eb;
+}
+
+/* ================= TOGGLE SENHA ================= */
+.toggle-senha {
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 16px;
+  color: #64748b;
+}
+
+/* ================= BOTÃO ================= */
+.login-container button {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.login-container button:hover {
+  background: #1d4ed8;
+}
+
+.login-container button.loading {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+/* ================= MENSAGEM ================= */
+.login-msg {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-msg.erro {
+  color: #dc2626;
+}
+
+.login-msg.sucesso {
+  color: #16a34a;
+}
+
+/* ================= FOOTER ================= */
+.login-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: #64748b;
+}
+
+/* ================= ANIMAÇÃO ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
