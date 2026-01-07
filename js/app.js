@@ -273,8 +273,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function renderizarContatos(lista) {
-    tabelaContatos.innerHTML = lista.length
-      ? lista.map(c => `
+    // Ordena pelo campo "local" em ordem alfabética
+    const listaOrdenada = [...lista].sort((a,b) => a.local.localeCompare(b.local));
+
+    tabelaContatos.innerHTML = listaOrdenada.length
+      ? listaOrdenada.map(c => `
         <tr>
           <td>${c.local}</td>
           <td>${c.responsavel || "-"}</td>
